@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 4
+replicaCount: 3
 
 image:
   repository: nhostert/myapp
@@ -66,7 +66,7 @@ resources:
     cpu: 100m
     memory: 128Mi
   requests:
-    cpu: 100m
+    cpu: 10m
     memory: 128Mi
 
 autoscaling:
@@ -80,4 +80,16 @@ nodeSelector: {}
 
 tolerations: []
 
-affinity: {}
+selectorLabels:
+  app: myapp
+
+affinity: 
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+    - labelSelector:
+        matchExpressions:
+        - key: "app.kubernetes.io/instance"
+          operator: In
+          values:
+          - myapp
+      topologyKey: kubernetes.io/hostname
