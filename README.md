@@ -1,5 +1,10 @@
 # ycit021-myapp
 
+## Application information
+The application has been built with this [repository](https://github.com/NicolasHostert/nuxt-realworld).
+
+The Docker image is stored [there](https://hub.docker.com/layers/nhostert/myapp/v3/images/sha256-d1bd0de89614a2e61a375ad25bcecf1eb2aa96d60a3b51e1340b0521c628c1a2?context=explore).
+
 ## Installation procedure
 
 ### Local dev machine
